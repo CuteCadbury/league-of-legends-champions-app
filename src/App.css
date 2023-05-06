@@ -2,3 +2,42 @@
   text-align: center;
 }
 
+.card {
+  margin: auto; 
+  box-shadow: 0 0 10px 0 #ddd;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 350px;
+  text-align: center;
+  padding: 1rem;
+  /* border: solid; */
+  margin: 1rem 2rem;
+  cursor: pointer;
+  float: left;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.emoji-button{
+  border: none;
+  background: none;
+  float: left;
+  cursor: pointer;
+}
+
+.emoji-button:hover {
+  transform: scale(1.40);
+}
+
+.emoji-button.like {
+  /* text-shadow: 0 0 0 gold; */
+  color: gold;
+  cursor: pointer;
+}
+
+.emoji-button.unlike {
+  color: transparent;
+  text-shadow: 0 0 0 gray;
+}
