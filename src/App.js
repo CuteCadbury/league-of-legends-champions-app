@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-
+import { useState, useEffect } from 'react';
 import ChampionsFilter from './components/ChampionsFilter'
 import ChampionsList from './components/ChampionsList'
 import Navbar from './components/Navbar'
@@ -9,6 +9,16 @@ import Home from './components/Home'
 import NewChampions from './components/NewChampion'
 
 function App() {
+
+  const [champions, setChampions] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:3000/champions')
+    .then(r => r.json())
+    .then(championsData => setChampions(championsData))
+  },[])
+  console.log(champions)
+
   return (
     <div className="App">
       <BrowserRouter>
