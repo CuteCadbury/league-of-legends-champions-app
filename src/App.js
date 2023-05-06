@@ -17,7 +17,6 @@ function App() {
     .then(r => r.json())
     .then(championsData => setChampions(championsData))
   },[])
-  console.log(champions)
 
   return (
     <div className="App">
@@ -29,7 +28,8 @@ function App() {
                 <Home />
               </Route>
               <Route exact path="/champions">
-                <ChampionsList />
+                <ChampionsList 
+                  champions={champions}/>
               </Route>
               <Route exact path="/favorites">
               </Route>
