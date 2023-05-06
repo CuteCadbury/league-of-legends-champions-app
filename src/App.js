@@ -7,16 +7,19 @@ import Navbar from './components/Navbar'
 import Header from './components/Header'
 import Home from './components/Home'
 import NewChampions from './components/NewChampion'
+import { useDebugValue } from 'react';
+import { useSyncExternalStore } from 'react';
 
 function App() {
 
   const [champions, setChampions] = useState([])
-
+  
   useEffect(() => {
     fetch('http://localhost:3000/champions')
     .then(r => r.json())
     .then(championsData => setChampions(championsData))
   },[])
+
 
   return (
     <div className="App">
