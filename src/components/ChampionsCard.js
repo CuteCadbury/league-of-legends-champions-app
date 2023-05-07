@@ -34,6 +34,19 @@ const ChampionsCard = ({ champion }) => {
     setIsLiked(isLiked => !isLiked)
   }
 
+  const handleDelete = ((id) => {
+    if(window.confirm("Do you want to delete?")){
+      fetch("http://localhost:3000/champions/"+id, {
+        method: "DELETE"})
+        .then(() => {
+          window.location.reload()
+        })
+        .catch((error) => {
+          console.log(error.message)
+        })
+    }
+  })
+
   return (
     <div className='card'>
       <div  onClick={toggleLike} className='emoji-button'>
@@ -43,6 +56,7 @@ const ChampionsCard = ({ champion }) => {
           <button className="emoji-button unlike">☆</button>
          )}
       </div>
+      <button onClick={() => {handleDelete(champion.id)}} className="emoji-button delete">🗑</button>
       <div onClick={toggleCard}>
         {showInfo ? <Front icon={champion.icon} name={champion.name} /> : 
                     <Back champion={champion} />} 

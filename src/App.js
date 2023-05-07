@@ -44,6 +44,9 @@ function App() {
         <Navbar />
         <Header slogan="League of Legends" storeName="Welcome to Summoner's Rift"/>
           <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
               <Route exact path="/champions">
                 <ChampionsFilter 
                   handleSearch={handleSearch}/>
@@ -55,9 +58,6 @@ function App() {
               <Route exact path="/add-new">
                 <NewChampions 
                   submitNewChampion={submitNewChampion}/>
-              </Route>
-              <Route exact path="/">
-                <Home />
               </Route>
           </Switch>
       </BrowserRouter>
