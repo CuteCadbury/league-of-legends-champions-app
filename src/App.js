@@ -7,18 +7,18 @@ import Navbar from './components/Navbar'
 import Header from './components/Header'
 import Home from './components/Home'
 import NewChampions from './components/NewChampion'
-import { useDebugValue } from 'react';
-import { useSyncExternalStore } from 'react';
 
 function App() {
 
   const [champions, setChampions] = useState([])
-  
+  const [searchFiltered, setSearchFiltered] = useState(champions)
+
   const fetchData = async() => {
     try {
       const resp = await fetch('http://localhost:3000/champions')
       const championsData = await resp.json()
       setChampions(championsData)
+      searchFiltered(championsData)
     } catch (error) {
         alert('ERROR!')
     }
@@ -27,6 +27,12 @@ function App() {
   useEffect(() => {
     fetchData()
   }, [])
+
+  const handleSearch = (searchValue) => {
+    const searchFiltered = champions.filter(champion => 
+      champion.name.toLowerCase().includes(searchValue.toLowerCase()))
+      setSearchFiltered(searchFiltered)
+  }
 
   return (
     <div className="App">
@@ -38,8 +44,10 @@ function App() {
                 <Home />
               </Route>
               <Route exact path="/champions">
+                <ChampionsFilter 
+                  handleSearch={handleSearch}/>
                 <ChampionsList 
-                  champions={champions}/>
+                  champions={searchFiltered}/>
               </Route>
               <Route exact path="/favorites">
               </Route>
