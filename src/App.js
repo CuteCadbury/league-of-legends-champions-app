@@ -14,12 +14,19 @@ function App() {
 
   const [champions, setChampions] = useState([])
   
-  useEffect(() => {
-    fetch('http://localhost:3000/champions')
-    .then(r => r.json())
-    .then(championsData => setChampions(championsData))
-  },[])
+  const fetchData = async() => {
+    try {
+      const resp = await fetch('http://localhost:3000/champions')
+      const championsData = await resp.json()
+      setChampions(championsData)
+    } catch (error) {
+        alert('ERROR!')
+    }
+  }
 
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   return (
     <div className="App">

@@ -25,8 +25,6 @@ const ChampionsCard = ({ champion }) => {
   const [ showInfo, setShowInfo ] = useState(true)
   const [ isLiked, setIsLiked ] = useState(false)
 
-  const tagsList = champion.tags.map(tag => <ul key={tag}>{tag}</ul>)
-
   const toggleCard = () => {
     setShowInfo(showInfo => !showInfo)
   }
@@ -46,7 +44,7 @@ const ChampionsCard = ({ champion }) => {
       </div>
       <div onClick={toggleCard}>
         {showInfo ? <Front icon={champion.icon} name={champion.name} /> : 
-                    <Back champion={champion} tags={tagsList} />} 
+                    <Back champion={champion} />} 
       </div>
     </div>
   )
