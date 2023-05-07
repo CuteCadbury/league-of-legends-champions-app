@@ -3,19 +3,20 @@ import { useState } from "react"
 const Front = ({ icon, name }) => {
   return (
     <div>
-      <img src={icon} alt={"champion name"}/>
+      <img className="card-front-img" src={icon} alt={"champion name"}/>
       <h3>{name}</h3>
     </div>
   )
 }
+
 const Back = ({ champion }) => {
   return (
     <div>
-      <img src={champion.icon} alt={"champion name"}/>
+      <img className="card-back-img" src={champion.icon} alt={"champion name"}/>
       <h3>{champion.name}</h3>
       <p>"{champion.title}"</p>
       <p>{champion.tags}</p>
-      <ul>Description: {champion.description}</ul>
+      <p>Description: {champion.description}</p>
     </div>
   )
 }
@@ -35,7 +36,7 @@ const ChampionsCard = ({ champion }) => {
 
   return (
     <div className='card'>
-      <div className='star-button' onClick={toggleLike}>
+      <div  onClick={toggleLike} className='emoji-button'>
         {isLiked ? (
            <button className="emoji-button like">★</button>
         ) : (

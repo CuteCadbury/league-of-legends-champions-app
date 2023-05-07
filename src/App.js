@@ -18,9 +18,9 @@ function App() {
       const resp = await fetch('http://localhost:3000/champions')
       const championsData = await resp.json()
       setChampions(championsData)
-      searchFiltered(championsData)
+      setSearchFiltered(championsData)
     } catch (error) {
-        alert('ERROR!')
+        alert('Error!')
     }
   }
 
@@ -34,15 +34,16 @@ function App() {
       setSearchFiltered(searchFiltered)
   }
 
+  const submitNewChampion = (newChampObj) => {
+    setChampions([...champions, newChampObj])
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
         <Header slogan="League of Legends" storeName="Welcome to Summoner's Rift"/>
           <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
               <Route exact path="/champions">
                 <ChampionsFilter 
                   handleSearch={handleSearch}/>
@@ -52,7 +53,11 @@ function App() {
               <Route exact path="/favorites">
               </Route>
               <Route exact path="/add-new">
-                <NewChampions />
+                <NewChampions 
+                  submitNewChampion={submitNewChampion}/>
+              </Route>
+              <Route exact path="/">
+                <Home />
               </Route>
           </Switch>
       </BrowserRouter>

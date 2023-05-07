@@ -20,6 +20,17 @@
   transform: scale(1.05);
 }
 
+.card-front-img {
+  width: 150px;
+  height: 150px;
+  /* border-radius: .5em; */
+}
+
+.card-back-img {
+  width: 150px;
+  height: 150px;
+}
+
 .emoji-button{
   border: none;
   background: none;
@@ -40,4 +51,8 @@
 .emoji-button.unlike {
   color: transparent;
   text-shadow: 0 0 0 gray;
+}
+
+.emoji-button.delete {
+  float: right;
 }
