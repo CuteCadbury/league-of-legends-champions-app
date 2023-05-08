@@ -21,20 +21,17 @@ const Back = ({ champion }) => {
   )
 }
 
-const ChampionsCard = ({ champion }) => {
+const ChampionsCard = ({ champion, onFavoriteChampion }) => {
 
+  const {id, favorite} = champion
   const [ showInfo, setShowInfo ] = useState(true)
-  const [ isLiked, setIsLiked ] = useState(false)
+  const [ isFavorite, setIsFavorite ] = useState(favorite)
 
   const toggleCard = () => {
     setShowInfo(showInfo => !showInfo)
   }
 
-  const toggleLike = () => {
-    setIsLiked(isLiked => !isLiked)
-  }
-
-  const handleDelete = ((id) => {
+  const handleDelete = (() => {
     if(window.confirm("Do you want to delete?")){
       fetch("http://localhost:3000/champions/"+id, {
         method: "DELETE"})
@@ -47,16 +44,36 @@ const ChampionsCard = ({ champion }) => {
     }
   })
 
+  const handleFavoriteChange = () => {
+    setIsFavorite(isFavorite => !isFavorite)
+
+    fetch('http://localhost:3000/champions/'+id, {
+      method:"PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({favorite: !favorite})
+    })
+      .then(window.location.reload())
+      // .then(updatedFavorite => onFavoriteChampion(updatedFavorite))
+      // .then(data => console.log(data))
+      .then(onFavoriteChampion)
+      .catch((error) => {
+        console.log(error.message)
+      })
+
+  }
+
   return (
     <div className='card'>
-      <div  onClick={toggleLike} className='emoji-button'>
-        {isLiked ? (
-           <button className="emoji-button like">★</button>
+      <div onClick={handleFavoriteChange} className='emoji-button'>
+        {isFavorite ? (
+           <button className="emoji-button like">⭐️</button>
         ) : (
-          <button className="emoji-button unlike">☆</button>
+          <button className="emoji-button unlike">⭐️</button>
          )}
       </div>
-      <button onClick={() => {handleDelete(champion.id)}} className="emoji-button delete">🗑</button>
+      <button onClick={() => {handleDelete(id)}} className="emoji-button delete">🗑</button>
       <div onClick={toggleCard}>
         {showInfo ? <Front icon={champion.icon} name={champion.name} /> : 
                     <Back champion={champion} />} 

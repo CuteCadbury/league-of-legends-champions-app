@@ -50,7 +50,7 @@
 
 .emoji-button.unlike {
   color: transparent;
-  text-shadow: 0 0 0 gray;
+  text-shadow: 0 0 0 rgb(171, 171, 171);
 }
 
 .emoji-button.delete {

@@ -1,12 +1,13 @@
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { useState, useEffect } from 'react';
-import ChampionsFilter from './components/ChampionsFilter'
 import ChampionsList from './components/ChampionsList'
+import ChampionsFilter from './components/ChampionsFilter'
+import ChampionsFavorite from './components/ChampionsFavorite'
+import NewChampions from './components/NewChampion'
 import Navbar from './components/Navbar'
 import Header from './components/Header'
 import Home from './components/Home'
-import NewChampions from './components/NewChampion'
+import { useEffect, useState } from 'react';
 
 function App() {
 
@@ -16,11 +17,11 @@ function App() {
   const fetchData = async() => {
     try {
       const resp = await fetch('http://localhost:3000/champions')
-      const championsData = await resp.json()
-      setChampions(championsData)
-      setSearchFiltered(championsData)
+      const champions = await resp.json()
+      setChampions(champions)
+      setSearchFiltered(champions)
     } catch (error) {
-        alert('Error!')
+        alert('ERROR!')
     }
   }
 
@@ -36,6 +37,17 @@ function App() {
 
   const submitNewChampion = (newChampObj) => {
     setChampions([...champions, newChampObj])
+  }
+
+  const handleFavoriteChampion = (updatedChampion) =>{
+    const updatedChampionArray = champions.map((champion) => {
+      if(champion.id === updatedChampion.id){
+        return updatedChampion
+      } else {
+        return champion
+      }
+    })
+    setChampions(updatedChampionArray)
   }
 
   return (
@@ -54,6 +66,10 @@ function App() {
                   champions={searchFiltered}/>
               </Route>
               <Route exact path="/favorites">
+              <ChampionsFavorite 
+                champions={champions}
+                onFavoriteChampion={handleFavoriteChampion}
+              /> 
               </Route>
               <Route exact path="/add-new">
                 <NewChampions 
