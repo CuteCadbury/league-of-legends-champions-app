@@ -1,32 +1,150 @@
-.App {
-  text-align: center;
+html {
+  margin: 0;
+  height: 100vh;
+  background-color: rgb(9,20,40);
 }
 
+.box {
+  background-color: rgb(9,20,40);
+  height: 100vh;
+  width: 100vw;
+}
+
+.App {
+  background-color: rgb(9,20,40);
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  color: rgb(200, 170, 110);
+}
+
+/* Header///////////////////////////////////////////////////////////////////////// */
+.lolLogo {
+  float: left;
+  text-align: center;
+  height: 4%;
+  width: 4%;
+  padding: 1%;
+  margin-top: -20px;
+} 
+
+.headerContainer {
+  background-color: rgb(9,20,40);
+  width: 100vw;
+}
+
+.slogan {
+  width: 22%;  
+  margin-top: 2%;
+  text-align: center;
+  margin-right: 5%;
+}
+
+/* Home///////////////////////////////////////////////////////////////////////// */
+.DWplayers:hover {
+  box-shadow: 
+    0 0 100px white,
+    0 0 80px rgb(205, 250, 250),
+    0 0 60px rgb(10, 200, 185),
+    0 0 40px rgb(3, 151, 171),
+    0 0 20px rgb(0, 90, 130);
+  transform: scale(1.10);
+  cursor: pointer;
+}
+
+.dwLogo {
+  float: top;
+  width: 8em;
+  cursor: pointer;
+  border: 2px solid rgb(10, 200, 185);
+  box-shadow: 0 0 8px white;
+  margin-right: 5%;
+}
+.dwLogo:hover {
+  transform: scale(1.20);
+  box-shadow: 0 0 40px 0 rgb(205, 250, 250);
+}
+
+.backgroundText {
+  float: top;
+  padding: 0;
+}
+.titleText {
+  color: rgb(200, 170, 110);
+}
+.subTitle {
+  color: rgb(10, 200, 185);
+}
+
+/* DWCard///////////////////////////////////////////////////////////////////////// */
+/* DamwonSkins///////////////////////////////////////////////////////////////////////// */
+.damwonWorld{
+  height: 100vh;
+  width: 100vw;
+  background-image: url('./logos/backgroundMission.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  color: rgb( 205, 250, 250);
+}
+
+.logo-card {
+  background-color: rgb(9,20,40);
+  border: 4px solid rgb(10, 200, 185);
+  text-align: center;
+  float: left;
+  padding: 0.5rem 0.5rem 1rem 0.5rem;
+  margin: 1rem 1rem;
+  cursor: pointer;
+  width: 380px;
+}
+
+.logo-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20em 0 rgb(10, 200, 185);
+}
+
+.logoCard-front-img {
+  height: 100%;
+  width: 100%;
+}
+
+.logoCard-back-img{
+  height: 100%;
+  width: 100%;
+}
+
+/* ChampionsList///////////////////////////////////////////////////////////////////////// */
+.championContainer {
+  background-color: rgb(9,20,40);
+  height: 100vh;
+  width: 100vw;
+}
+
+/* ChampionsCard///////////////////////////////////////////////////////////////////////// */
 .card {
-  margin: auto; 
-  box-shadow: 0 0 10px 0 #ddd;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 350px;
+  background-color: rgb(9,20,40);
+  box-shadow: 0 0 8px rgb(30, 40, 45);
+  width: 200px;
   text-align: center;
   padding: 1rem;
-  /* border: solid; */
-  margin: 1rem 2rem;
+  margin: 1rem 1.5rem;
   cursor: pointer;
   float: left;
+  border: 2px solid rgb(200, 170, 110);
 }
 
 .card:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 30px rgb(240, 230, 210);
 }
 
-.card-front-img {
-  width: 150px;
-  height: 150px;
-  /* border-radius: .5em; */
+.championCard-front-img {
+  width: 100%;
+  height: 100%;
 }
 
-.card-back-img {
+.championCard-back-img {
   width: 150px;
   height: 150px;
 }
@@ -43,7 +161,6 @@
 }
 
 .emoji-button.like {
-  /* text-shadow: 0 0 0 gold; */
   color: gold;
   cursor: pointer;
 }
@@ -56,3 +173,30 @@
 .emoji-button.delete {
   float: right;
 }
+
+/* ChampionsFavorite///////////////////////////////////////////////////////////////////////// */
+.favoriteContainer {
+  background-color: rgb(9,20,40);
+  height: 100%;
+  width: 100vw;
+}
+
+/* NewChampion///////////////////////////////////////////////////////////////////////// */
+.formContainer{
+  background-color: rgb(9,20,40);
+  height: 100vh;
+  width: 100vw;
+}
+
+.submitbtn {
+  cursor: pointer;
+  background-image: url('./logos/fog.png');
+  color: rgb(200, 170, 110);
+}
+
+.submitbtn:hover {
+  transform: scale(1.05);
+  border: 1.5px solid rgb(200, 170, 110);
+  box-shadow: 0 0 20px 0px rgb(240, 230, 210);
+}
+

@@ -10,8 +10,8 @@ const ChampionsList = ({ champions, onFavoriteChampion }) => {
               />})
 
   return (
-    <div className="container">
-      <h2>All Champions</h2>
+    <div className="championContainer">
+      <h1>All Champions</h1>
       {championsCard}
     </div>
   )
