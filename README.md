@@ -9,7 +9,7 @@ As someone who enjoys playing League of Legends and watching my favorite League,
 
 * Users can start adding champions that were released after patch 10.23, starting with the champion "Rell" released on 12/10/2020.
 
-###[Blog about this League of Legends App](https://medium.com/@wlgmlgus/react-app-league-of-legends-champions-c0f82be928f6)
+[Blog about this League of Legends App](https://medium.com/@wlgmlgus/react-app-league-of-legends-champions-c0f82be928f6)
 
 ## App allows users
 
@@ -33,16 +33,16 @@ As someone who enjoys playing League of Legends and watching my favorite League,
 ## Installation 
 
 1. Fork and clone the repo
-```git@github.com:Heegg/league-of-legends-champions-app.git```
+```bash git@github.com:Heegg/league-of-legends-champions-app.git```
 
 2. Cd into the file
-```cd application```
+```bash cd application```
 
 3. Run the json-server
-```npm run server```
+```bash npm run server```
 
 4. Run the React server with: 
-```npm start```
+```bash npm start```
 
 
 ## Resources
