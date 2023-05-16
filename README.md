@@ -33,16 +33,16 @@ As someone who enjoys playing League of Legends and watching my favorite League,
 ## Installation 
 
 1. Fork and clone the repo
-```bash git@github.com:Heegg/league-of-legends-champions-app.git```
+```git@github.com:Heegg/league-of-legends-champions-app.git```
 
 2. Cd into the file
-```bash cd application```
+```cd application```
 
 3. Run the json-server
-```bash npm run server```
+```npm run server```
 
 4. Run the React server with: 
-```bash npm start```
+```npm start```
 
 
 ## Resources
