@@ -23,8 +23,8 @@ As someone who enjoys playing League of Legends and watching my favorite League,
 
 ## Technologies
 
-* Bootstrap
-* Custon CSS
+* CSS
+* HTML
 * JavaScript
 * JSON
 * React
